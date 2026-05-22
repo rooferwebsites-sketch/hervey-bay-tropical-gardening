@@ -25,6 +25,11 @@ function Home() {
     const revealElements = document.querySelectorAll('.reveal')
     revealElements.forEach((el) => observer.observe(el))
 
+    // Backup activation for all reveal elements
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'))
+    }, 1000)
+
     return () => observer.disconnect()
   }, [])
 
